@@ -3,11 +3,16 @@ package com.david.stringproblems;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
 
 /** Write a program that reverses the letters of each word and a program that reverses the letters of
  * each word and the words themselves.
  */
 public class ReverseLettersAndWords {
+    private static final Pattern PATTERN = Pattern.compile(" +");
+    private static final String WHITESPACE = " ";
 
     public static   String reverseWordLetters(String str){
         if(str ==  null || str.isEmpty()){
@@ -24,7 +29,7 @@ public class ReverseLettersAndWords {
         return String.join(" ",results);
     }
 
-    public static   String reverseLettersOfWordAndWords(String str){
+    public static   String reverseLettersOfWordAndWordsV1(String str){
         if(str ==  null || str.isEmpty()){
             return "";
         }
@@ -60,8 +65,8 @@ public class ReverseLettersAndWords {
         return  sb.append(charArr).toString();
     }
 
-    public static String reverseWordsV1(String str) {
-         String WHITESPACE = " ";
+    public static String reverseLettersOfWordAndWordsV2(String str) {
+
         if (str == null || str.isBlank()) {
             // or throw IllegalArgumentException
             return "";
@@ -79,6 +84,18 @@ public class ReverseLettersAndWords {
         }
         return reversedString.toString();
     }
+    public static String reverseLettersOfWordAndWordsV3(String str) {
+        // or throw IllegalArgumentException
+        if (str == null || str.isBlank()) {
+            return "";
+        }
+
+        return PATTERN.splitAsStream(str)
+                .map(w -> new StringBuilder(w).reverse())
+                .collect(Collectors.joining(WHITESPACE));
+    }
+
+
 
 
 }
