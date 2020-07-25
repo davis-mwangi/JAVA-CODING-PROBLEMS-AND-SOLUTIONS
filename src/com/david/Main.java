@@ -1,5 +1,9 @@
 package com.david;
 
+import com.david.stringproblems.DuplicatedCharacterCounter;
+import com.david.stringproblems.FirstNonRepeatedStringCharacter;
+import com.david.stringproblems.ReverseLettersAndWords;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -12,7 +16,8 @@ public class Main {
         // 🎼 -> \uD83C\uDFBC, Code Point: 127932
         // 😍 ->\uD83D\uDE0D, Code Point: 128525
         String TEXT_CP = TEXT +  "😍 I love 💕 you Ӝ so much 💕 😍 🎼🎼🎼!";
-//        System.out.println(StringProblems.countDuplicateCharactersV1(TEXT_CP));
+//        System.out.println(DuplicatedCharacterCounter.countDuplicateCharactersV1(TEXT_CP));
+
 
         /** Finding the first non-repeated character*/
        String TEXT2 = "My high school, the Illinois Mathematics and Science Academy, "
@@ -20,6 +25,11 @@ public class Main {
                 + "At 15, I worked as a computer programmer at the Fermi National Accelerator Laboratory, "
                 + "or Fermilab. After graduating, I attended Stanford for a degree in economics and "
                 + "computer science.";
-        System.out.println(StringProblems.findFirstNonRepeatedCharacterV1(TEXT2));
+//        System.out.println(FirstNonRepeatedStringCharacter.findFirstNonRepeatedCharacterV1(TEXT2));
+
+
+        /** Reversing letters and words*/
+        String TEXT3 = "mufia kamau call";
+        System.out.println(ReverseLettersAndWords.reverseWordLetters(TEXT3));
     }
 }
